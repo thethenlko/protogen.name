@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+<meta property="og:title" content="protogen.name">
+<meta property="og:description" content="useless ahh website">
+<meta property="og:image" content="https://protogen.name/imgs/protogenname.gif">
+<meta property="og:url" content="https://protogen.name">
+<meta property="og:type" content="website">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/style.css">
+
+</head>
+<body>
+
+<div class="topnav">
+  <a class="active" href="/index.html">hello</a>
+  <a href="/stuff/tools.html">tools</a>
+  <a href="/stuff/why.html">why</a>
+  <a href="/stuff/protogens.html">i am here about protogens</a>
+</div>
+
+<div class="clicker-container">
+  <h1 id="workCounter">0 work done</h1>
+  <p id="workStatus">you have done nothing yet</p>
+  <button id="workButton" onclick="doWork()">click for work</button>
+  <p id="workPerClick">+1 work per click</p>
+</div>
+
+<script>
+  let workCount = 0;
+
+  const statuses = [
+    { threshold: 0, text: "you have done nothing yet" },
+    { threshold: 10, text: "mildly productive" },
+    { threshold: 50, text: "your boss is watching" },
+    { threshold: 100, text: "certified work haver" },
+    { threshold: 250, text: "workaholic behavior detected" },
+    { threshold: 500, text: "please take a break" },
+    { threshold: 1000, text: "you ARE the job now" }
+  ];
+
+  function doWork() {
+    workCount++;
+    document.getElementById("workCounter").textContent = workCount + " work done";
+
+    let currentStatus = statuses[0].text;
+    for (const s of statuses) {
+      if (workCount >= s.threshold) currentStatus = s.text;
+    }
+    document.getElementById("workStatus").textContent = currentStatus;
+
+    const btn = document.getElementById("workButton");
+    btn.classList.remove("bounce");
+    void btn.offsetWidth; // restart animation
+    btn.classList.add("bounce");
+  }
+</script>
+
+<div style="padding-left:16px">
+  <img src="/imgs/protogenname.gif"> 
+  <h2>hii</h2>
+  <p>domain is owned by @thethenlko</p>
+</div>
+
+</body>
+</html>
